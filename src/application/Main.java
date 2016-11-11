@@ -3,27 +3,18 @@ package application;
 import java.io.File;
 import java.util.Vector;
 
-import dataHandler.ReadData;
+import dataHandler.ScanDrives;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import sun.security.util.Length;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
 	
-	private Vector<File> fileCollection1;
-	
 	@Override
 	public void start(Stage primaryStage) {
-		
-		//Read all files with defined endings
-		fileCollection1 = new ReadData().execute(GlobalVariables.IEC_PATH_FIRST);
 	
-		//Parse each file and collect attributes
-		
-		
+		new ScanDrives();
+
 	}
 	
 	/*

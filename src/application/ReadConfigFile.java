@@ -7,9 +7,7 @@ import java.io.IOException;
 
 public class ReadConfigFile {
 	
-	private final String firstProjectPath = "@FirstProjectPath:";
-	private final String secondProjectPath ="@SecondProjectPath:";
-	private final String fileEndings = "@ParseFileEndings:";
+	private final String targetPath = "@TargetPath:";
 	private final String comment = "#";
 
 	public ReadConfigFile() {
@@ -32,33 +30,18 @@ public class ReadConfigFile {
 	}
 
 	private void parseLine(String string) {
-		parseFirstPath(string);
-		parseSecondPath(string);
-		parseFileEndings(string);
+		parseTargetPath(string);
 		
 	}
 
-	private void parseFileEndings(String string) {
-		if (string.contains(fileEndings)) {
-			String tmpString = string.substring(fileEndings.length(), string.length());
+	private void parseTargetPath(String string) {
+		if (string.contains(targetPath)) {
+			String tmpString = string.substring(targetPath.length(), string.length());
 			GlobalVariables.FILE_ENDINGS = tmpString.split(";");
 
 		}
 		
 	}
 
-	private void parseSecondPath(String string) {
-		if (string.contains(secondProjectPath)) {
-			GlobalVariables.IEC_PATH_FIRST = string.substring(secondProjectPath.length(), string.length());
-		}
-		
-	}
 
-	private void parseFirstPath(String string) {
-		if (string.contains(firstProjectPath)) {
-			GlobalVariables.IEC_PATH_FIRST = string.substring(firstProjectPath.length(), string.length());	
-		}
-		
-	}
-	
 }
